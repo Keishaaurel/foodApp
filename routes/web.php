@@ -23,20 +23,13 @@ Route::get('/', function () {
     return view('account.register');
 });
 
-Route::get('/register', function () {
-    return view('account.register');
-});
-
-// Route::get('/', [MenuController::class, 'index'])->name('page.menu');
-
-Route::resource('/dashboard', MenuController::class);
-
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
-
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/dashboard', [MenuController::class, 'dashboard']);
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');

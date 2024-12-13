@@ -9,16 +9,22 @@ use Illuminate\Http\RedirectResponse;
 
 class MenuController extends Controller
 {
+    public function dashboard() : View 
+    {
+        $menus = Menu::with('category')->get();
+        return view('menu.dashboard', compact('menus'));
+    }
+    
     public function index() : View 
     {
         $menus = Menu::with('category')->get();
-        return view('page.menu', compact('menus'));
+        return view('menu.menu', compact('menus'));
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('page.create', compact('categories'));
+        return view('menu.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -28,7 +34,7 @@ class MenuController extends Controller
         'name' => 'required|string|max:255',
         'price' => 'required|numeric|min:0',
         'description' => 'required',
-        'category' => 'required',
+        'categoryID' => 'required',
     ]);
 
     $image = $request->file('image');
@@ -39,7 +45,7 @@ class MenuController extends Controller
         'name' => $request->name,
         'price' => $request->price,
         'description' => $request->description,
-        'category' => $request->category,
+        'categoryID' => $request->categoryID,
     ]);
     
 

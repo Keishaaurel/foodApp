@@ -17,6 +17,7 @@
     text-decoration: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+
 }
 
 body {
@@ -34,6 +35,7 @@ nav {
     overflow: hidden;
     transition: width 0.2s linear;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    position: fixed;
 }
 
 .logo {
@@ -86,7 +88,7 @@ a {
 
 a:hover {
     border-radius: 50px; 
-    background: #eee;
+    background: pink;
     transition: all 0.2 ease;
 }
 
@@ -114,11 +116,11 @@ nav:hover {
                 <i class="fas fa-solid fa-user"></i>
                 <span class="nav-item">Account</span>
             </a></li>
-            <li><a href="icon">
+            <li><a href="/dashboard">
                 <i class="fas fa-solid fa-house"></i>
                 <span class="nav-item">Home</span>
             </a></li>
-            <li><a href="icon">
+            <li><a href="/menu">
                 <i class="fas fa-solid fa-bars"></i>
                 <span class="nav-item">Menu</span>
             </a></li>

@@ -102,55 +102,15 @@ body {
         </div>
     </div>
     <div class="menus">
-        <div class="menu">
-            <img src="image/logo.jpg" alt="">
-            <div class="desc">
-                <h1>mie ayam</h1>
-                <p>price</p>
+        @foreach ($menus as $item)
+            <div class="menu">
+                <img src="{{ asset('/storage/images/'. $item->image) }}" alt="">
+                <div class="desc">
+                    <h3>{{ $item->name}}</h3>
+                    <p>{{ $item->price}}</p>
+                </div>
             </div>
-        </div>
-        <div class="menu">
-            <img src="image/logo.jpg" alt="">
-            <div class="desc">
-                <h1>mie ayam</h1>
-                <p>price</p>
-            </div>
-        </div>
-        <div class="menu">
-            <img src="image/logo.jpg" alt="">
-            <div class="desc">
-                <h1>mie ayam</h1>
-                <p>price</p>
-            </div>
-        </div>
-        <div class="menu">
-            <img src="image/logo.jpg" alt="">
-            <div class="desc">
-                <h1>mie ayam</h1>
-                <p>price</p>
-            </div>
-        </div>
-        <div class="menu">
-            <img src="image/logo.jpg" alt="">
-            <div class="desc">
-                <h1>mie ayam</h1>
-                <p>price</p>
-            </div>
-        </div>
-        <div class="menu">
-            <img src="image/logo.jpg" alt="">
-            <div class="desc">
-                <h1>mie ayam</h1>
-                <p>price</p>
-            </div>
-        </div>
-        <div class="menu">
-            <img src="image/logo.jpg" alt="">
-            <div class="desc">
-                <h1>mie ayam</h1>
-                <p>price</p>
-            </div>
-        </div>
+        @endforeach
     </div>
 </body>
 </html>

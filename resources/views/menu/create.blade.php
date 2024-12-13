@@ -120,12 +120,12 @@
                     <small style="color: red;">{{ $message }}</small>
                 @enderror
                 <label for="cat">Category</label>
-                <select name="category" id="cat" class="form-control">
+                <select name="categoryID" id="cat" class="form-control">
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name_category }}</option>
                     @endforeach
                 </select>
-                @error('category')
+                @error('categoryID')
                     <small style="color: red;">{{ $message }}</small>
                 @enderror
                 <input type="submit" value="Save">

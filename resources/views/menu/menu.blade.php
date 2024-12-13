@@ -19,16 +19,16 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-
+        
         body {
             overflow: hidden;
             padding-left: 100px;
         }
-
+        
         .table {
             width: 100%;
         }
-
+        
         .table_header {
             display: flex;
             justify-content: space-between;
@@ -40,14 +40,28 @@
 
         .table_header p {
             color: #000;
+            font-weight: 600;
         }
 
-        .icon {
-            outline: none;
-            border: none;
+        .add_data {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        
+        .add_new {
             border-radius: 6px;
-            cursor: pointer;
+            padding: 10px 20px;
             color: #fff;
+            background-color: #0298cf;
+            cursor: pointer;
+            /* box-shadow: 3px 2px 10px rgb(240, 240, 240); */
+        }
+
+        .table_header a {
+            width: 120px;
+            display: flex;
+            justify-content: center;
         }
 
         td button:nth-child(1) {
@@ -63,15 +77,6 @@
             width: 30px;
             height: 30px;
             background-color: #f80000;
-        }
-
-        .add_new {
-            border-radius: 6px;
-            padding: 10px 20px;
-            color: #fff;
-            background-color: #0298cf;
-            cursor: pointer;
-            /* box-shadow: 3px 2px 10px rgb(240, 240, 240); */
         }
 
         input {
@@ -116,14 +121,22 @@
             width: 60px;
             object-fit: cover;
             border-radius: 15px;
-            border: 5px solid #ced0d2;
+            border: 3px solid pink;
         }
 
         tr:hover td {
-            color: #0298cf;
+            color: #F2BED1;
             /* cursor: pointer; */
             background-color: #f6f9fc;
 
+        }
+
+        .icon {
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #fff;
         }
 
         ::placeholder {
@@ -173,7 +186,7 @@
     <div class="table">
         <div class="table_header">
             <p>Product Details</p>
-            <div class="">
+            <div class="add_data">
                 <input placeholder="Product">
                 <a href="{{ url('/menu/create')}}" class="add_new">+ Add New</a>
                 <a href="{{ url('/category/create')}}" class="add_new">+ Add cat</a>
@@ -201,7 +214,7 @@
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->price }}</td>
                     <td>{{ $item->description }}</td>   
-                    <td>{{ $item->category }}</td>
+                    <td>{{ $item->category->name_category }}</td>
                     <td>
                         <button><i class="icon fa-solid fa-pen-to-square"></i></button>
                         <button><i class="icon fa-solid fa-trash"></i></button>
